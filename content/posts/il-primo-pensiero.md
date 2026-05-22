@@ -1,7 +1,6 @@
 ---
 title: "Il primo pensiero"
 date: 2026-05-22
-tags: ["inizio"]
 ---
 
 Ogni cosa ha un inizio.
