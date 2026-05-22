@@ -4,6 +4,11 @@ title: "Semplici pensieri"
 theme: "hugo-ink"
 paginate: 5
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 outputs:
   home:
     - HTML
