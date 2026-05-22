@@ -230,6 +230,50 @@ mark {
     padding: 0 2px;
 }
 
+/* Condivisione */
+.condividi {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    flex-wrap: wrap;
+}
+
+.condividi-label {
+    font-family: "Lora", serif;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-right: 0.4rem;
+}
+
+.condividi-btn {
+    font-family: "Lora", serif;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    color: var(--color-text);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.condividi-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.condividi-whatsapp:hover {
+    border-color: #25d366;
+    color: #25d366;
+}
+
 /* Archivio */
 .archivio-filtri {
     display: flex;
