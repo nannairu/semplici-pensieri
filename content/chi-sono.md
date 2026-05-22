@@ -4,7 +4,7 @@ date: 0001-01-01
 ---
 
 <div class="profilo-foto">
-  <img src="/images/Paola.png" alt="Paola" />
+  <img src="/images/Paola_New.png" alt="Paola" />
 </div>
 
 Ciao, sono Paola.
