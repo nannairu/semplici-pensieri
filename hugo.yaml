@@ -24,6 +24,9 @@ menu:
     - name: "Cerca"
       url: "/cerca/"
       weight: 2
+    - name: "Archivio"
+      url: "/archivio/"
+      weight: 3
     - name: "Chi sono"
       url: "/chi-sono/"
-      weight: 3
+      weight: 4

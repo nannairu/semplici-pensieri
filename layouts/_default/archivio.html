@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+<body>
+  <div class="container wrapper">
+    {{ partial "head.html" . }}
+
+    <div class="post">
+      <h1 class="title">Archivio</h1>
+
+      <div class="archivio-filtri">
+        <select id="filtro-anno">
+          <option value="">Tutti gli anni</option>
+        </select>
+        <select id="filtro-mese">
+          <option value="">Tutti i mesi</option>
+        </select>
+      </div>
+
+      {{ $posts := where .Site.RegularPages "Section" "posts" }}
+      <div id="archivio-lista">
+        {{ range $posts }}
+        <div class="archivio-post"
+             data-anno="{{ dateFormat "2006" .Date }}"
+             data-mese="{{ dateFormat "01" .Date }}">
+          <span class="archivio-data">{{ dateFormat "02 Jan 2006" .Date }}</span>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+        {{ end }}
+      </div>
+
+      <p id="archivio-vuoto" style="display:none" class="cerca-nessun-risultato">Nessun post in questo periodo.</p>
+    </div>
+  </div>
+  {{ partial "footer.html" . }}
+
+  <script>
+    const mesiIT = ["","Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre"];
+    const posts = Array.from(document.querySelectorAll(".archivio-post"));
+
+    // Popola i filtri con i valori presenti
+    const anni = [...new Set(posts.map(p => p.dataset.anno))].sort().reverse();
+    const mesi = [...new Set(posts.map(p => p.dataset.mese))].sort();
+
+    const selAnno = document.getElementById("filtro-anno");
+    const selMese = document.getElementById("filtro-mese");
+
+    anni.forEach(a => {
+      const opt = document.createElement("option");
+      opt.value = a; opt.textContent = a;
+      selAnno.appendChild(opt);
+    });
+
+    mesi.forEach(m => {
+      const opt = document.createElement("option");
+      opt.value = m; opt.textContent = mesiIT[parseInt(m)];
+      selMese.appendChild(opt);
+    });
+
+    function filtra() {
+      const anno = selAnno.value;
+      const mese = selMese.value;
+      let visibili = 0;
+      posts.forEach(p => {
+        const match = (!anno || p.dataset.anno === anno) && (!mese || p.dataset.mese === mese);
+        p.style.display = match ? "" : "none";
+        if (match) visibili++;
+      });
+      document.getElementById("archivio-vuoto").style.display = visibili === 0 ? "" : "none";
+    }
+
+    selAnno.addEventListener("change", filtra);
+    selMese.addEventListener("change", filtra);
+  </script>
+</body>
+</html>
