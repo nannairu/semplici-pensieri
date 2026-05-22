@@ -1,4 +1,4 @@
-baseURL: "https://semplici-pensieri.netlify.app/"
+baseURL: "https://semplicipensieri.netlify.app/"
 locale: "it-IT"
 title: "Semplici pensieri"
 theme: "hugo-ink"
