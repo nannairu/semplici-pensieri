@@ -4,6 +4,12 @@ title: "Semplici pensieri"
 theme: "hugo-ink"
 paginate: 5
 
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
 params:
   author: "Paola"
   description: "Pensieri scritti con semplicità."
@@ -15,6 +21,9 @@ menu:
     - name: "Home"
       url: "/"
       weight: 1
+    - name: "Cerca"
+      url: "/cerca/"
+      weight: 2
     - name: "Chi sono"
       url: "/chi-sono/"
-      weight: 2
+      weight: 3

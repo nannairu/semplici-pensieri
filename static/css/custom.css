@@ -164,3 +164,68 @@ blockquote {
 hr {
     border-top: 1px solid var(--color-border);
 }
+
+/* Ricerca */
+.cerca-box {
+    margin: 1.5rem 0;
+}
+
+.cerca-box input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-family: "Lora", serif;
+    font-size: 1rem;
+    color: var(--color-text);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.cerca-box input:focus {
+    border-color: var(--color-accent);
+}
+
+.cerca-risultato {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cerca-risultato a {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.cerca-risultato a:hover {
+    border-bottom: 1px solid var(--color-accent);
+}
+
+.cerca-data {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 0.3rem 0 0.6rem 0;
+}
+
+.cerca-risultato p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+}
+
+.cerca-nessun-risultato {
+    color: var(--color-muted);
+    font-style: italic;
+}
+
+mark {
+    background-color: #f5d9c8;
+    color: var(--color-text);
+    border-radius: 2px;
+    padding: 0 2px;
+}

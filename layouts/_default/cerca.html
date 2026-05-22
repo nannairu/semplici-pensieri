@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+{{ partial "header.html" . }}
+<body>
+  <div class="container wrapper">
+    {{ partial "head.html" . }}
+
+    <div class="post">
+      <h1 class="title">Cerca</h1>
+
+      <div class="cerca-box">
+        <input
+          type="text"
+          id="cerca-input"
+          placeholder="Cerca tra i post..."
+          autocomplete="off"
+        />
+      </div>
+
+      <div id="cerca-risultati"></div>
+    </div>
+  </div>
+  {{ partial "footer.html" . }}
+
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
+  <script>
+    let fuse;
+
+    fetch("/index.json")
+      .then(r => r.json())
+      .then(posts => {
+        fuse = new Fuse(posts, {
+          keys: [
+            { name: "title", weight: 2 },
+            { name: "content", weight: 1 }
+          ],
+          threshold: 0.1,
+          distance: 200,
+          minMatchCharLength: 2,
+          ignoreLocation: true,
+          includeMatches: true
+        });
+      });
+
+    function highlight(text, query) {
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const regex = new RegExp(`(${escaped})`, "gi");
+      return text.replace(regex, "<mark>$1</mark>");
+    }
+
+    document.getElementById("cerca-input").addEventListener("input", function () {
+      const query = this.value.trim();
+      const container = document.getElementById("cerca-risultati");
+
+      if (!query || !fuse) {
+        container.innerHTML = "";
+        return;
+      }
+
+      const results = fuse.search(query);
+      if (results.length === 0) {
+        container.innerHTML = "<p class='cerca-nessun-risultato'>Nessun risultato trovato.</p>";
+        return;
+      }
+
+      container.innerHTML = results.map(({ item }) => `
+        <div class="cerca-risultato">
+          <a href="${item.url}">${highlight(item.title, query)}</a>
+          <span class="cerca-data">${item.date}</span>
+          <p>${highlight(item.content, query)}</p>
+        </div>
+      `).join("");
+    });
+  </script>
+</body>
+</html>
