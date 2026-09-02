@@ -1,6 +1,6 @@
 ---
 title: E' ARRIVATO
-date: 2026-09-24
+date: 2026-07-24
 ---
 È ARRIVATO
 
