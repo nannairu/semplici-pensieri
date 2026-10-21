@@ -2,7 +2,7 @@
 title: LA MAMMA DI BAMBI SI SALVAVA SEMPRE
 date: 2026-10-21
 ---
-LA MAMMA D IBAMBI SI SALVAVA SEMPRE
+LA MAMMA DI BAMBI SI SALVAVA SEMPRE
 
 …Finì anche l’inverno e un giorno Bambi fu svegliato da colpi assordanti. Erano arrivati i cacciatori e tutti gli animali della foresta erano in pericolo.
 
